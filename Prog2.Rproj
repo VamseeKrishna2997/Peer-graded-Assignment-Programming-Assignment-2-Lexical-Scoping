@@ -1,3 +1,8 @@
+## Purpose of these functions are to allow
+## caching of matrix inversion
+
+## Creates a special "matrix" object that
+## can cache its inverse
 makeCacheMatrix <- function(x = matrix(sample(1:100,9),3,3)) {
   s <- NULL
   set <- function(y) {
@@ -13,6 +18,8 @@ makeCacheMatrix <- function(x = matrix(sample(1:100,9),3,3)) {
 }
 ##
 ## Same here, changed "mean" to "solve" and "m" to "s"
+## Retrieve cached inverse if exists else
+## compute the inverse of the matrix
 cacheSolve <- function(x, ...) {
   s <- x$getsolve()
   if(!is.null(s)) {
